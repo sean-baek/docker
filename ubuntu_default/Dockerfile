@@ -1,5 +1,6 @@
 # base image is ubuntu 20.04
 FROM ubuntu
+COPY . /app
 
 MAINTAINER Sean <qtt1536@gmail.com>
 
@@ -9,7 +10,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Seoul
 
 # update, upgrade, package
-RUN apt update -y && apt upgrade -y && apt full-upgrade && apt autoremove \
-        apt install -y net-tools build-essential make gcc git curl wget gdb vim zsh ssh netcat \
+RUN apt-get update -y && apt-get upgrade -y && apt-get full-upgrade -y && apt-get autoremove \
+        && apt-get install -y net-tools build-essential make gcc git curl wget gdb vim zsh ssh netcat \
+        apache2 unzip \
         ruby-full python python3 python3-pip python-dev python3-dev python-setuptools python3-setuptools \
-        libssl-dev libffi-dev libc6-i386 libc6-dbg gcc-multilib utils
+        libssl-dev libffi-dev libc6-i386 libc6-dbg gcc-multilib 
