@@ -15,3 +15,17 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get full-upgrade -y && apt-ge
         apache2 unzip \
         ruby-full python python3 python3-pip python-dev python3-dev python-setuptools python3-setuptools \
         libssl-dev libffi-dev libc6-i386 libc6-dbg gcc-multilib 
+RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+RUN python3 get-pip.py
+RUN rm get-pip.py
+RUN pip install --upgrade pip
+RUN pip install pwntools
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --upgrade pwntools
+RUN apt install libcapstone-dev -y
+RUN git clone https://github.com/pwndbg/pwndbg
+WORKDIR pwndbg
+RUN ./setup.sh
+
+WORKDIR /
+RUN bash -c "$(wget http://gef.blah.cat/sh -O -)"

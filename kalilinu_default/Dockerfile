@@ -1,0 +1,10 @@
+FROM kalilinux/kali-rolling
+
+MAINTAINER Sean <qtt1536@gmail.com>
+
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Asia/Seoul
+
+RUN apt && apt upgrade -y && apt full-upgrade -y && apt autoremove -y\
+        apt-get install -y docker docker.io kali-linux-headless ssh 
+
