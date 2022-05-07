@@ -11,4 +11,4 @@ ENV TZ=Asia/Seoul
 RUN apt update && apt upgrade -y && apt full-upgrade -y && apt autoremove -y
 RUN apt install -y net-tools build-essential make gcc git curl wget gdb vim zsh ssh netcat \
         apache2 unzip ruby-full python python3 python3-pip python-dev python3-dev python-setuptools \
-        python3-setuptools 
+        python3-setuptools php php-gd mariadb-server
