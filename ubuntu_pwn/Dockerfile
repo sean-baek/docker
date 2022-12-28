@@ -13,6 +13,8 @@ ENV TZ=Asia/Seoul
 # update, upgrade and install Package
 RUN apt update -y && apt upgrade -y && apt autoremove
 
+RUN apt install -y nasm
+
 RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 RUN python3 get-pip.py
 RUN rm get-pip.py 
